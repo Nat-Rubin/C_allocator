@@ -1,4 +1,4 @@
-git #include <stdlib.h>
+#include <stdlib.h>
 
 typedef struct Node_t{
     int size;
