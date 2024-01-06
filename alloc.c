@@ -92,7 +92,7 @@ void* calloc(size_t nelem, size_t elsize) {
 	if ((size_t)-1/nelem < elsize) return NULL;  // if overflow, return NULL
 	size_t total_size = nelem * elsize;
 
-	void *ptr = alloc(total_size);
+	void *ptr = malloc(total_size);
 	if (ptr == NULL) return NULL;  // no space left for allocation
 
 	node_t *chunk = ptr-sizeof(node_t);
@@ -104,11 +104,11 @@ void* calloc(size_t nelem, size_t elsize) {
 
 
 void* realloc(void *ptr, size_t size) {
-	if (ptr == NULL) return alloc(size);
+	if (ptr == NULL) return malloc(size);
 	node_t *chunk = (node_t *)(ptr - sizeof(node_t));
 	if (chunk->is_free == true) return NULL;
 
-	void *new_ptr = alloc(size);  // allocate mem for new size
+	void *new_ptr = malloc(size);  // allocate mem for new size
 	if (new_ptr == NULL) return NULL;  // no space left for allocation
 
 	memcpy(new_ptr, ptr, chunk->size);  // copy everything from ptr to new_ptr
