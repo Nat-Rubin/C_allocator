@@ -155,7 +155,7 @@ void free(void *ptr) {
 int main(void) {
     printf("Hello, World!\n");
     size_t size = 10;
-    void* all = alloc(size);
+    void* all = malloc(size);
     all = realloc(all, 50);
     //void* call = calloc(10, sizeof(int));
     return 0;

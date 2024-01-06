@@ -7,7 +7,7 @@ typedef struct Node_t{
     bool is_free;
 } node_t;
 
-void* alloc(size_t);
+void* malloc(size_t);
 void* calloc(size_t, size_t);
 void* realloc(void*, size_t);
 void free(void*);
